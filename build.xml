@@ -1,0 +1,17 @@
+<project name="JavaProject" default="run" basedir=".">
+    <property name="src.dir" value="0x_simpleProgram"/>
+    <property name="build.dir" value="build"/>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="compile" depends="clean">
+        <mkdir dir="${build.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}"/>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="Main" dir="${build.dir}" fork="true"/>
+    </target>
+</project>
